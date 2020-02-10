@@ -1,4 +1,4 @@
-Django == 3.0
+Django >= 3.0
 asgiref == 3.2.3
 bson == 0.5.8
 dataclasses == 0.6
