@@ -1,0 +1,74 @@
+
+{% block content %}
+    <div class="col-md-4">
+          <div class="widget-sidebar sidebar-search">
+            <h5 class="sidebar-title">Search</h5>
+            <div class="sidebar-content">
+              <form>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
+                  <span class="input-group-btn">
+                    <button class="btn btn-secondary btn-search" type="button">
+                      <span class="ion-android-search"></span>
+                    </button>
+                  </span>
+                </div>
+              </form>
+            </div>
+          </div>
+            <div class="widget-sidebar">
+                <h5 class="sidebar-title">About Me</h5>
+                <div class="sidebar-content">
+                    <p> skladnkdkasbfjkbaf
+                    af
+                    as
+
+                    asf</p>
+                </div>
+              </div>
+          <div class="widget-sidebar">
+            <h5 class="sidebar-title">Recent Post</h5>
+            <div class="sidebar-content">
+              <ul class="list-sidebar">
+                   {% if blogs or blog.is_published == True %}
+                     {% for blog in allblogs %}
+                        {% if blog.is_published == True %}
+                            <li>
+                              <a href="/blog/{{ blog.slug }}">{{ blog.title }}</a>
+                            </li>
+                        {% endif %}
+                     {% endfor %}
+                    {% else %}
+                            <h2 class="card-title">No Blogs</h2>
+                    {% endif %}
+              </ul>
+            </div>
+          </div>
+
+{#          <div class="widget-sidebar widget-tags">#}
+{#            <h5 class="sidebar-title">Tags</h5>#}
+{#            <div class="sidebar-content">#}
+{#              <ul>#}
+{#                <li>#}
+{#                  <a href="#">Web.</a>#}
+{#                </li>#}
+{#                <li>#}
+{#                  <a href="#">Design.</a>#}
+{#                </li>#}
+{#                <li>#}
+{#                  <a href="#">Travel.</a>#}
+{#                </li>#}
+{#                <li>#}
+{#                  <a href="#">Photoshop</a>#}
+{#                </li>#}
+{#                <li>#}
+{#                  <a href="#">Corel Draw</a>#}
+{#                </li>#}
+{#                <li>#}
+{#                  <a href="#">JavaScript</a>#}
+{#                </li>#}
+{#              </ul>#}
+{#            </div>#}
+{#          </div>#}
+        </div>
+{% endblock %}

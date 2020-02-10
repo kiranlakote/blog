@@ -1,0 +1,60 @@
+{% load static %}
+{% block content %}
+    <!-- Blog Post -->
+    <section id="blog" class="blog-mf sect-pt4 route">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="title-box text-center">
+            <h3 class="title-a">
+              Blog
+            </h3>
+            <p class="subtitle-a">
+              Love to write blog on Django Framework
+            </p>
+            <div class="line-mf"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        {% if blogs or blog.is_published == True %}
+         {% for blog in blogs %}
+            {% if blog.is_published == True %}
+                <div class="col-md-4">
+                  <div class="card card-blog">
+                    <div class="card-img">
+                      <a href="blog-single.html"><img src="{% static 'img/post-1.jpg' %}" alt="" class="img-fluid"></a>
+                    </div>
+                    <div class="card-body">
+                      <div class="card-category-box">
+                        <div class="card-category">
+                          <h6 class="category">category</h6>
+                        </div>
+                      </div>
+                      <h3 class="card-title"><a href="/blog/{{ blog.slug }}">{{ blog.title }}</a></h3>
+                      <p class="card-description">
+                        {{ blog.content|truncatewords:20 }}
+                      </p>
+                    </div>
+                    <div class="card-footer">
+{#                      <div class="post-author">#}
+{#                        <a href="#">#}
+{#                          <img src="img/testimonial-2.jpg" alt="" class="avatar rounded-circle">#}
+{#                          <span class="author">author name</span>#}
+{#                        </a>#}
+{#                      </div>#}
+                      <div class="post-date">
+                        <span class="ion-ios-clock-outline"></span> Posted on {{ blog.created }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            {% endif %}
+         {% endfor %}
+        {% else %}
+                <h2 class="card-title">No Blogs</h2>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% endblock %}
